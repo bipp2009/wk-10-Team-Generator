@@ -14,18 +14,32 @@ const generateHtml = team => {
     }
 
     const generateEngineerHtml = engineer => {
-        return ``
+        console.log(engineer, engineer.getRole)
+        return `
+        <div>
+        <h2>Engineer: ${engineer.getName()}</h2>
+        <h4>Id: ${engineer.getId()}</h4>
+        <p>${engineer.getEmail()} || ${engineer.getGithub()}</p>
+        </div>
+        `
     }
 
     const generateInternHtml = intern => {
-        return ``
+        return `
+        <div>
+        <h2>Intern: ${intern.getName()}</h2>
+        <h4>Id: ${intern.getId()}</h4>
+        <p>${intern.getEmail()} || ${intern.getSchool()}</p>
+        </div>
+        `
     }
 
     const html = [];
 
     html.push(team.filter(employee => employee.getRole() === "Manager").map(manager => generateManagerHtml(manager)))
-
-
+    html.push(team.filter(employee => employee.getRole() === "Engineer").map(engineer => generateEngineerHtml(engineer)))
+    html.push(team.filter(employee => employee.getRole() === "Intern").map(intern => generateInternHtml(intern)))
+    
     return html.join("")
 }
 
