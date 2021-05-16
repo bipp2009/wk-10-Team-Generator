@@ -1,7 +1,16 @@
 const generateHtml = team => {
 
     const generateManagerHtml = manager => {
-        return ``
+        console.log(html)
+        console.log("argument", manager);
+        console.log(manager.getName())
+        return `
+        <div>
+        <h2>Manager: ${manager.getName()}</h2>
+        <h4>Id: ${manager.getId()}</h4>
+        <p>${manager.getEmail()} || ${manager.getOfficeNumber()}</p>
+        </div>
+        `;
     }
 
     const generateEngineerHtml = engineer => {
@@ -14,7 +23,10 @@ const generateHtml = team => {
 
     const html = [];
 
+    html.push(team.filter(employee => employee.getRole() === "Manager").map(manager => generateManagerHtml(manager)))
 
+
+    return html.join("")
 }
 
 module.exports = team => {

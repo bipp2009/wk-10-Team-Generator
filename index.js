@@ -6,6 +6,7 @@ const randerHtml = require("./utils/generatehtml");
 const Manager = require("./classes/manager");
 const Engineer = require("./classes/engineer");
 const Intern = require("./classes/intern");
+const generatehtml = require("./utils/generatehtml");
 
 const output_dir = path.resolve(__dirname, "output");
 const output_path = path.join(output_dir, "team.html");
@@ -145,7 +146,12 @@ function init() {
       });
   }
 
-  function generateHtmlPage() {}
+  function generateHtmlPage() {
+      if(!fs.existsSync(output_dir)){
+          fs.mkdirSync(output_dir)
+      }
+      fs.writeFileSync(output_path, generatehtml(teamArray))
+  }
 
   managerCreation();
 }
