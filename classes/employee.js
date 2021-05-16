@@ -17,6 +17,5 @@ class Employee {
     return "Employee";
   }
 }
-module.exports = Employee
-let testEmployee = new Employee("john", "01", "john@gmail.com");
-console.log(testEmployee.getName());
+module.exports = Employee;
+
