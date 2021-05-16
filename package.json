@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/bipp2009/wk-10-Team-Generator/issues"
   },
-  "homepage": "https://github.com/bipp2009/wk-10-Team-Generator#readme"
+  "homepage": "https://github.com/bipp2009/wk-10-Team-Generator#readme",
+  "dependencies": {
+    "inquirer": "^8.0.0"
+  }
 }
